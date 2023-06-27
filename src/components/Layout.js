@@ -1,17 +1,17 @@
 import { Outlet } from 'react-router-dom';
-import { Toaster } from 'react-hot-toast';
-import { AppBar } from './AppBar/AppBar';
 import { Suspense } from 'react';
-import css from './Layout.module.css'
+import { AppBar } from 'components/AppBar';
+import { Box } from '@chakra-ui/react';
 
 export const Layout = () => {
   return (
-    <div className={css.wraper}>
-      <AppBar />
-      <Suspense fallback={null}>
-        <Outlet />
-      </Suspense>
-      <Toaster position="top-right" reverseOrder={false} />
+    <div>
+      <Box maxW="1270px" mx="auto" px="15px">
+        <AppBar />
+        <Suspense fallback={null}>
+          <Outlet />
+        </Suspense>
+      </Box>
     </div>
   );
 };
